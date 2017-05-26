@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchForm extends React.Component {
+export default class SearchForm extends React.Component {
 
   onSearch(e) {
     e.preventDefault();
@@ -30,5 +30,3 @@ class SearchForm extends React.Component {
   }
 
 }
-
-export default SearchForm;

@@ -10,9 +10,11 @@ export default class Nav extends React.Component {
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
-            <li className="menu-text">React Weather</li>
+            <li className="menu-text">
+              <IndexLink to="/">React Weather</IndexLink>
+            </li>
             <li>
-              <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
+              <NavLink to="/weather" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</NavLink>
             </li>
             <li>
               <NavLink to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</NavLink>

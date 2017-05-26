@@ -1,19 +1,26 @@
 import React from 'react';
 import WeatherForm from 'WeatherForm';
-import WeatherMsg from 'WeatherMsg';
+// import WeatherMsg from 'WeatherMsg';
 // import Modal from 'Modal';
 // import openWeatherMap from 'openWeatherMap';
 
-default export class Weather extends React.Component{
+export default class Weather extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       isLoading: false
     };
-  },
+  }
+
+  // getInitialState() {
+  //   return {
+  //     isLoading: false
+  //   };
+  // }
 
   handleSearch(location) {
-    alert(location)
+    alert(location);
     // var that = this;
 
     // this.setState({ 
@@ -33,35 +40,36 @@ default export class Weather extends React.Component{
     //     modalMessage: err.message 
     //   });
     // });
-  },
+  }
 
   render() {
-    var {isLoading, location, temp, modalMessage} = this.state;
+    // var {isLoading, location, temp, modalMessage} = this.state;
 
-    function renderMessage() {
-      if (isLoading) {
-        return <h3 className="text-center">Fetching weather...</h3>;
-      }
-      else if (temp && location) {
-        return <WeatherMsg location={location} temp={temp}/>;
-      }
-    }
+    // function renderMessage() {
+    //   if (isLoading) {
+    //     return <h3 className="text-center">Fetching weather...</h3>;
+    //   }
+    //   else if (temp && location) {
+    //     return <WeatherMsg location={location} temp={temp}/>;
+    //   }
+    // }
 
-    function renderError() {
-      if (modalMessage !== undefined) {
-        return (
-          <Modal message={modalMessage}/>
-        );
-      }
-    }
+    // function renderError() {
+    //   if (modalMessage !== undefined) {
+    //     return (
+    //       <Modal message={modalMessage}/>
+    //     );
+    //   }
+    // }
 
     return (
       <div>
         <h1 className="text-center page-title">Get Weather</h1>
-        <WeatherForm onSearch={this.handleSearch}/>
-        {renderMessage()}
-        {renderError()}
+        <WeatherForm onSearch={this.handleSearch}/> 
       </div>
     );
+
+    // {renderMessage()}
+    // {renderError()}
   }
 }

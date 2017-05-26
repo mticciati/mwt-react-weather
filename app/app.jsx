@@ -4,9 +4,10 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
 import Main from 'Main';
-// Weather = require('Weather'),
-// About = require('About'),
-// Examples = require('Examples');
+import Weather from 'Weather';
+import About from 'About';
+import Examples from 'Examples';
+import routes from './routes.js';
 
 //browser history
 const history = createBrowserHistory()
@@ -18,16 +19,13 @@ $(document).foundation();
 //app css
 require('style-loader!css-loader!sass-loader!applicationStyles');
 
-ReactDOM.render(
-  <Router history={history}>
-    <Route path="/" component={Main}> 
-      <IndexRoute component={Weather}/>
-      
-    </Route>
-  </Router>,
+ReactDOM.render((
+  <Router history={history} routes={routes} />),
   document.getElementById("app")
-);
+);      
 
-// <Route path="about" component={About}/>
-//       <Route path="examples" component={Examples}/>
-//       
+  // <Route exact path="/" component={Main}>
+  //     <Route path="about" component={About}/>
+  //     <Route path="examples" component={Examples}/>
+  //   </Route>
+  //   <IndexRoute component={Weather}/>
