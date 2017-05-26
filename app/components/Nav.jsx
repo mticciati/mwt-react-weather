@@ -1,21 +1,11 @@
-var React = require('react'),
-{Link, IndexLink} = require('react-router');
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { IndexLink } from 'react-router';
+//import SearchForm from 'SearchForm';
 
-var Nav = React.createClass({
+export default class Nav extends React.Component {
 
-  onSearch: function(e) {
-    e.preventDefault();
-    alert('Not yet wired up');
-
-    // var location = this.refs.location.value;
-
-    // if (location.length > 0) {
-    //   this.refs.location.value = '';
-    //   this.props.onSearch(location)
-    // }
-  },
-
-  render:function() {
+  render() {
     return (
       <div className="top-bar">
         <div className="top-bar-left">
@@ -25,30 +15,26 @@ var Nav = React.createClass({
               <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
             </li>
             <li>
-              <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
+              <NavLink to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</NavLink>
             </li>
             <li>
-              <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
-            </li>
+              <NavLink to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</NavLink>
+            </li>      
           </ul>
         </div>
-
-        <div className="top-bar-right">
-          <form onSubmit={this.onSearch}>
-            <ul className="menu">
-              <li>
-                <input type="search" placeholder="Search weather by city" ref="location" />
-              </li>
-              <li>
-                <input type="submit" className="button" value="Get Weather" />
-              </li>
-            </ul>
-          </form>
-        </div>
-        
       </div>
     );
   }
-});
+}
 
-module.exports = Nav;
+  // 
+            // 
+            // 
+          // 
+      //  
+
+//         <div className="top-bar-right">
+//           <SearchForm />
+//         </div>
+        
+//       

@@ -1,9 +1,8 @@
-var React = require('react'),
-Nav = require('Nav');
+import React from 'react';
+import Nav from 'Nav';
 
-var Main = (props) => {
-  return (
-    <div>
+const Main = (props) => (
+    <div>    
       <Nav/>
       <div className="row">
         <div className="columns medium-6 large-4 small-centered">
@@ -14,6 +13,5 @@ var Main = (props) => {
       
     </div>    
   );
-}
 
 module.exports = Main;

@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
 //stateless functional component
-var About = (props) => {
+const About = (props) => {
   return (
     <div>
       <h1 className="text-center page-title">About</h1>

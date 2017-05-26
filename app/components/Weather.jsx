@@ -1,40 +1,41 @@
-var React = require('react'),
-WeatherForm = require('WeatherForm'),
-WeatherMsg = require('WeatherMsg'),
-Modal = require('Modal'),
-openWeatherMap = require('openWeatherMap');
+import React from 'react';
+import WeatherForm from 'WeatherForm';
+import WeatherMsg from 'WeatherMsg';
+// import Modal from 'Modal';
+// import openWeatherMap from 'openWeatherMap';
 
-var Weather = React.createClass({
+default export class Weather extends React.Component{
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       isLoading: false
     };
   },
 
-  handleSearch: function(location) {
-    var that = this;
+  handleSearch(location) {
+    alert(location)
+    // var that = this;
 
-    this.setState({ 
-      isLoading: true,
-      modalMessage: undefined
-    });
+    // this.setState({ 
+    //   isLoading: true,
+    //   modalMessage: undefined
+    // });
 
-    openWeatherMap.getTemp(location).then(function(temp) {
-      that.setState({
-        location: location,
-        temp: temp,
-        isLoading: false
-      });
-    }, function(err) {
-      that.setState({ 
-        isLoading: false,
-        modalMessage: err.message 
-      });
-    });
+    // openWeatherMap.getTemp(location).then(function(temp) {
+    //   that.setState({
+    //     location: location,
+    //     temp: temp,
+    //     isLoading: false
+    //   });
+    // }, function(err) {
+    //   that.setState({ 
+    //     isLoading: false,
+    //     modalMessage: err.message 
+    //   });
+    // });
   },
 
-  render: function() {
+  render() {
     var {isLoading, location, temp, modalMessage} = this.state;
 
     function renderMessage() {
@@ -63,6 +64,4 @@ var Weather = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = Weather;
+}

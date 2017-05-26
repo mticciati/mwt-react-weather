@@ -2,8 +2,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/foundation.min.js',
+    'script-loader!jquery/dist/jquery.min.js',
+    'script-loader!foundation-sites/dist/js/foundation.min.js',
     './app/app.jsx'
   ],
   externals: {
@@ -20,27 +20,28 @@ module.exports = {
     filename: './public/bundle.js'
   },
   resolve: {
-    root: __dirname,
+    modules: [__dirname, 'node_modules'],
     alias: {
       Main: 'app/components/Main.jsx',
       Nav: 'app/components/Nav.jsx',
-      Modal: 'app/components/Modal.jsx',
-      Weather: 'app/components/Weather.jsx',
-      WeatherForm: 'app/components/WeatherForm.jsx',
-      WeatherMsg: 'app/components/WeatherMsg.jsx',
-      openWeatherMap: 'app/api/openWeatherMap.jsx',
+      SearchForm: 'app/components/SearchForm.jsx',
+      // Modal: 'app/components/Modal.jsx',
+      // Weather: 'app/components/Weather.jsx',
+      // WeatherForm: 'app/components/WeatherForm.jsx',
+      // WeatherMsg: 'app/components/WeatherMsg.jsx',
+      // openWeatherMap: 'app/api/openWeatherMap.jsx',
       About: 'app/components/About.jsx',
-      Examples: 'app/components/Examples.jsx',
-      applicationStyles: 'app/styles/app.css'
+      // Examples: 'app/components/Examples.jsx',
+      applicationStyles: 'app/styles/app.scss'
     },
-    extensions: ['', '.js', '.jsx'] 
+    extensions: ['*', '.js', '.jsx'] 
   },
   module: {
     loaders: [
       {
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-0']
+          presets: ['react', 'es2015']
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
