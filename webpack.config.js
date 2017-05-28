@@ -22,8 +22,7 @@ module.exports = {
   resolve: {
     modules: [__dirname, 'node_modules'],
     alias: {
-      Main: 'app/components/Main.jsx',
-      Nav: 'app/components/Nav.jsx',
+      App: 'app/components/App.jsx',
       SearchForm: 'app/components/SearchForm.jsx',
       // Modal: 'app/components/Modal.jsx',
       Weather: 'app/components/Weather.jsx',
