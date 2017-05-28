@@ -1,6 +1,6 @@
 import React from 'react';
 import WeatherForm from 'WeatherForm';
-// import WeatherMsg from 'WeatherMsg';
+import WeatherMsg from 'WeatherMsg';
 // import Modal from 'Modal';
 // import openWeatherMap from 'openWeatherMap';
 
@@ -11,22 +11,18 @@ export default class Weather extends React.Component {
     this.state = {
       isLoading: false
     };
-  }
 
-  // getInitialState() {
-  //   return {
-  //     isLoading: false
-  //   };
-  // }
+    this.handleSearch = this.handleSearch.bind(this);
+  }
 
   handleSearch(location) {
     alert(location);
     // var that = this;
 
-    // this.setState({ 
-    //   isLoading: true,
-    //   modalMessage: undefined
-    // });
+    this.setState({ 
+      isLoading: true,
+      modalMessage: undefined
+    });
 
     // openWeatherMap.getTemp(location).then(function(temp) {
     //   that.setState({
@@ -43,16 +39,16 @@ export default class Weather extends React.Component {
   }
 
   render() {
-    // var {isLoading, location, temp, modalMessage} = this.state;
+    var {isLoading, location, temp, modalMessage} = this.state;
 
-    // function renderMessage() {
-    //   if (isLoading) {
-    //     return <h3 className="text-center">Fetching weather...</h3>;
-    //   }
-    //   else if (temp && location) {
-    //     return <WeatherMsg location={location} temp={temp}/>;
-    //   }
-    // }
+    function renderMessage() {
+      if (isLoading) {
+        return <h3 className="text-center">Fetching weather...</h3>;
+      }
+      else if (temp && location) {
+        return <WeatherMsg location={location} temp={temp}/>;
+      }
+    }
 
     // function renderError() {
     //   if (modalMessage !== undefined) {
@@ -66,10 +62,10 @@ export default class Weather extends React.Component {
       <div>
         <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/> 
+        {renderMessage()}
+        
       </div>
-    );
-
-    // {renderMessage()}
-    // {renderError()}
+    ); 
   }
+  //{renderError()}
 }

@@ -27,7 +27,7 @@ module.exports = {
       // Modal: 'app/components/Modal.jsx',
       Weather: 'app/components/Weather.jsx',
       WeatherForm: 'app/components/WeatherForm.jsx',
-      // WeatherMsg: 'app/components/WeatherMsg.jsx',
+      WeatherMsg: 'app/components/WeatherMsg.jsx',
       // openWeatherMap: 'app/api/openWeatherMap.jsx',
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',

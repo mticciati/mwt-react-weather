@@ -1,9 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var WeatherMsg = ({location, temp}) => {
-  return (
-    <h3 className="text-center">It is {temp} degrees in {location}</h3>
-  );
-}
+const WeatherMsg = ({location, temp}) => (
+  <h3 className="text-center">It is {temp} degrees in {location}</h3>
+);
 
-module.exports = WeatherMsg;
+export default WeatherMsg;
