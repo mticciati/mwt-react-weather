@@ -16,7 +16,7 @@ const App = () => (
         <ul className="menu">
           <li className="menu-text">React Weather</li>
           <li>
-             <NavLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</NavLink>
+             <NavLink exact to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</NavLink>
            </li>
            <li>
              <NavLink to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</NavLink>
