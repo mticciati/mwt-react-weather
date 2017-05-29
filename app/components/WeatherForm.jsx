@@ -1,6 +1,13 @@
 import React from 'react';
 
 export default class WeatherForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
+
   onFormSubmit(e) {
     e.preventDefault();
 

@@ -1,23 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-var Modal = React.createClass({
+export default class Modal extends React.Component {
 
-  getDefaultProps: function() {
-    return {
-      title: 'Hey!'
-    };
-  },
-  propTypes: {
-    title: React.PropTypes.string,
-    message: React.PropTypes.string.isRequired
-  },
-  componentDidMount: function() {
+  constructor(props) {
+    super(props); 
+  }
+
+  componentDidMount() {
     var modal = new Foundation.Reveal($('#modal'));
     modal.open();
-  },
+  }
 
-  render: function() {
+  render() {
     var {title, message} = this.props;
     return (
       <div className="reveal tiny text-center" id="modal" data-reveal="">
@@ -29,6 +24,9 @@ var Modal = React.createClass({
       </div>
     );
   }
-});
+};
 
-module.exports = Modal;
+Modal.propTypes = {
+  title: React.PropTypes.string,
+  message: React.PropTypes.string.isRequired
+};

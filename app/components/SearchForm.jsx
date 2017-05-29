@@ -12,6 +12,7 @@ export default class SearchForm extends React.Component {
     //   this.refs.location.value = '';
     //   this.props.onSearch(location)
     // }
+    this.onSearch = this.onSearch.bind(this);
   }
 
   render() {

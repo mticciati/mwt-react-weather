@@ -24,11 +24,11 @@ module.exports = {
     alias: {
       App: 'app/components/App.jsx',
       SearchForm: 'app/components/SearchForm.jsx',
-      // Modal: 'app/components/Modal.jsx',
+      Modal: 'app/components/Modal.jsx',
       Weather: 'app/components/Weather.jsx',
       WeatherForm: 'app/components/WeatherForm.jsx',
       WeatherMsg: 'app/components/WeatherMsg.jsx',
-      // openWeatherMap: 'app/api/openWeatherMap.jsx',
+      openWeatherMap: 'app/api/openWeatherMap.jsx',
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
       Example: 'app/components/Example.jsx',

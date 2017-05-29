@@ -1,8 +1,8 @@
 import React from 'react';
 import WeatherForm from 'WeatherForm';
 import WeatherMsg from 'WeatherMsg';
-// import Modal from 'Modal';
-// import openWeatherMap from 'openWeatherMap';
+import Modal from 'Modal';
+import openWeatherMap from 'openWeatherMap';
 
 export default class Weather extends React.Component {
 
@@ -16,26 +16,25 @@ export default class Weather extends React.Component {
   }
 
   handleSearch(location) {
-    alert(location);
-    // var that = this;
+    var that = this;
 
     this.setState({ 
       isLoading: true,
       modalMessage: undefined
     });
 
-    // openWeatherMap.getTemp(location).then(function(temp) {
-    //   that.setState({
-    //     location: location,
-    //     temp: temp,
-    //     isLoading: false
-    //   });
-    // }, function(err) {
-    //   that.setState({ 
-    //     isLoading: false,
-    //     modalMessage: err.message 
-    //   });
-    // });
+    openWeatherMap.getTemp(location).then(function(temp) {
+      that.setState({
+        location: location,
+        temp: temp,
+        isLoading: false
+      });
+    }, function(err) {
+      that.setState({ 
+        isLoading: false,
+        modalMessage: err.message 
+      });
+    });
   }
 
   render() {
@@ -50,22 +49,22 @@ export default class Weather extends React.Component {
       }
     }
 
-    // function renderError() {
-    //   if (modalMessage !== undefined) {
-    //     return (
-    //       <Modal message={modalMessage}/>
-    //     );
-    //   }
-    // }
+    function renderError() {
+      if (modalMessage !== undefined) {
+        return (
+          <Modal message={modalMessage}/>
+        );
+      }
+    }
 
     return (
       <div>
         <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/> 
         {renderMessage()}
-        
+        {renderError()}
       </div>
     ); 
   }
-  //{renderError()}
+  
 }
