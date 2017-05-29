@@ -3,6 +3,7 @@ import WeatherForm from 'WeatherForm';
 import WeatherMsg from 'WeatherMsg';
 import Modal from 'Modal';
 import openWeatherMap from 'openWeatherMap';
+import queryString from 'query-string';
 
 export default class Weather extends React.Component {
 
@@ -20,7 +21,9 @@ export default class Weather extends React.Component {
 
     this.setState({ 
       isLoading: true,
-      modalMessage: undefined
+      modalMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(function(temp) {
@@ -35,6 +38,28 @@ export default class Weather extends React.Component {
         modalMessage: err.message 
       });
     });
+  }
+
+  componentDidMount() {
+    var location = queryString.parse(this.props.location.hash).location;
+    console.log(this.props);
+    console.log('location ', location);
+
+    if (location && location.length > 0 ){
+      this.handleSearch(location);
+      window.location.hash = '/';
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    var location = queryString.parse(newProps.location.hash).location;
+    console.log(newProps);
+    console.log('location ', location);
+
+    if (location && location.length > 0 ){
+      this.handleSearch(location);
+      window.location.hash = '/';
+    }
   }
 
   render() {

@@ -1,7 +1,9 @@
 $buffer-large: 2.5rem;
+$title-color: #444444;
 
 .page-title {
   margin: $buffer-large 0;
+  color: $title-color;
 }
 
 input[type=search] {
