@@ -7,10 +7,10 @@ const Examples = (props) => (
     <p>Here are a few example locations to try out:</p>
     <ol>
       <li>
-        <Link to="/examples/?location=Manhattan">Manhattan, NY</Link>
+        <Link to="/api/Manhattan">Manhattan, NY</Link>
       </li>
       <li>
-        <Link to="/examples/?location=Rio">Rio, Brazil</Link>
+        <Link to="/api/Rio">Rio, Brazil</Link>
       </li>
     </ol>
   </div>

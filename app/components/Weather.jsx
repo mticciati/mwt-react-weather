@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherForm from 'WeatherForm';
+import WeatherFormWithRouter from 'WeatherForm';
 import WeatherMsg from 'WeatherMsg';
 import Modal from 'Modal';
 import openWeatherMap from 'openWeatherMap';
@@ -9,6 +9,7 @@ export default class Weather extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       isLoading: false
     };
@@ -17,8 +18,8 @@ export default class Weather extends React.Component {
   }
 
   handleSearch(location) {
-    var that = this;
-
+    let that = this;
+    console.log('reached search');
     this.setState({ 
       isLoading: true,
       modalMessage: undefined,
@@ -41,29 +42,26 @@ export default class Weather extends React.Component {
   }
 
   componentDidMount() {
-    var location = queryString.parse(this.props.location.hash).location;
-    console.log(this.props);
+    let location = this.props.match.params.city;
     console.log('location ', location);
 
     if (location && location.length > 0 ){
       this.handleSearch(location);
-      window.location.hash = '/';
     }
   }
 
   componentWillReceiveProps(newProps) {
-    var location = queryString.parse(newProps.location.hash).location;
+    let location = newProps.match.params.city;
     console.log(newProps);
     console.log('location ', location);
 
     if (location && location.length > 0 ){
       this.handleSearch(location);
-      window.location.hash = '/';
     }
   }
 
   render() {
-    var {isLoading, location, temp, modalMessage} = this.state;
+    let {isLoading, location, temp, modalMessage} = this.state;
 
     function renderMessage() {
       if (isLoading) {
@@ -85,7 +83,7 @@ export default class Weather extends React.Component {
     return (
       <div>
         <h1 className="text-center page-title">Get Weather</h1>
-        <WeatherForm onSearch={this.handleSearch}/> 
+        <WeatherFormWithRouter onSearch={this.handleSearch}/> 
         {renderMessage()}
         {renderError()}
       </div>

@@ -1,10 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.onSearch = this.onSearch.bind(this);
   }
 
@@ -15,7 +15,7 @@ export default class SearchForm extends React.Component {
 
     if (search.length > 0) {
       this.refs.search.value = '';
-      window.location.hash = 'location='+search;
+      this.props.history.push('/api/' + search);
     }
   }
 
@@ -35,3 +35,7 @@ export default class SearchForm extends React.Component {
   }
 
 }
+
+const SearchFormWithRouter = withRouter(SearchForm);
+
+export default SearchFormWithRouter;

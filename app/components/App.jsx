@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Weather from 'Weather';
 import About from 'About';
 import Examples from 'Examples';
 import Example from 'Example';
-import SearchForm from 'SearchForm';
+import SearchFormWithRouter from 'SearchForm';
 
 
 
@@ -27,17 +27,17 @@ const App = () => (
         </ul>
       </div>
       <div className="top-bar-right">
-        <SearchForm />
+        <SearchFormWithRouter />
       </div>
     </div>
     <div className="row">
       <div className="columns medium-6 large-4 small-centered">
         <Route exact path="/" component={Weather}/>
+        <Route path="/api/:city" component={Weather} />
         <Route path="/about" component={About}/>
         <Route path="/examples" render={({path}) => (
           <div>
             <Route exact path={path} component={Examples} />
-            <Route path={path+'?:location'} compotent={Example} /> 
           </div>
         )}/>  
 

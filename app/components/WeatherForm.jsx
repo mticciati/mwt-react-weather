@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class WeatherForm extends React.Component {
+class WeatherForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ export default class WeatherForm extends React.Component {
 
     if (location.length > 0) {
       this.refs.location.value = '';
-      this.props.onSearch(location);
+      this.props.history.push('/api/' + location);
     }
   }
 
@@ -29,4 +30,8 @@ export default class WeatherForm extends React.Component {
       </div>
     );
   }
-};
+}
+
+const WeatherFormWithRouter = withRouter(WeatherForm);
+
+export default WeatherFormWithRouter;
