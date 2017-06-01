@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 
 export default class Modal extends React.Component {
 
@@ -8,19 +10,28 @@ export default class Modal extends React.Component {
   }
 
   componentDidMount() {
-    var modal = new Foundation.Reveal($('#modal'));
-    modal.open();
-  }
-
-  render() {
     var {title, message} = this.props;
-    return (
+    let modalMarkup = (
       <div className="reveal tiny text-center" id="modal" data-reveal="">
         <h4>{title}</h4>
         <p>{message}</p>
         <button className="button hollow" data-close="">
           Okay
         </button>
+      </div>
+    );
+
+    var $modal = $(ReactDOMServer.renderToString(modalMarkup));
+    $(ReactDOM.findDOMNode(this)).html($modal);
+
+    var modal = new Foundation.Reveal($('#modal'));
+    modal.open();
+  }
+
+  render() {
+    
+    return (
+      <div>
       </div>
     );
   }
